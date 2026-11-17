@@ -1,0 +1,18 @@
+{
+  "professor_id": "professor_001",
+  "name": "Rowanda Ahmed",
+  "position": "Assistant Professor",
+  "institution": "Uskudar University",
+  "department": "Computer Engineering",
+  
+  "research_interests": [
+    "Artificial Intelligence, AI Agents, Agentic AI, Machine Learning, Natural Language Processing, and Large Language Models (LLMs)"
+],
+
+  "research_goals": [
+    "Identify emerging research topics",
+    "Discover research gaps",
+    "Find potential research collaborations",
+    "Generate innovative research ideas"
+  ]
+}

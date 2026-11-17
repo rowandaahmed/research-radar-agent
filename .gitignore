@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+backend/data/latest_research.json
+*.db
+*.sqlite3

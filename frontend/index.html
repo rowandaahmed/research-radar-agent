@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResearchRadar AI</title>
+
+    <link rel="stylesheet" href="style.css?v=5">
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+    <script src="script.js?v=7" defer></script>
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-satellite-dish"></i>
+            <span>ResearchRadar</span>
+        </div>
+
+        <p class="menu-label">WORKSPACE</p>
+
+        <nav>
+            <a href="#" class="nav-link active" data-view="dashboardView">
+                <i class="fa-solid fa-chart-pie"></i>
+                Dashboard
+            </a>
+
+            <a href="#" class="nav-link" data-view="conferencesView">
+                <i class="fa-solid fa-calendar-days"></i>
+                Conferences &amp; CFPs
+            </a>
+
+            <a href="#papers-section" class="nav-link" data-view="dashboardView">
+                <i class="fa-solid fa-book-open"></i>
+                Research Papers
+            </a>
+
+            <a href="#insights-section" class="nav-link" data-view="dashboardView">
+                <i class="fa-solid fa-lightbulb"></i>
+                Research Insights
+            </a>
+
+            <a href="#ideas-section" class="nav-link" data-view="dashboardView">
+                <i class="fa-solid fa-brain"></i>
+                Research Ideas
+            </a>
+        </nav>
+
+        <p class="menu-label">PREFERENCES</p>
+
+        <nav>
+            <a href="#interests-section" class="nav-link" data-view="dashboardView">
+                <i class="fa-solid fa-user"></i>
+                Professor Profile
+            </a>
+
+            <a href="#" class="nav-link" data-view="dashboardView">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-avatar">RA</div>
+            <div>
+                <strong>Dr. Rowanda Ahmed</strong>
+                <small>Professor · Üsküdar Univ.</small>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content" id="dashboard-top">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+            <div>
+                <h2>Research Dashboard</h2>
+                <p>Your personalized AI research workspace</p>
+            </div>
+
+            <div class="topbar-right">
+                <span class="status">
+                    <i class="fa-solid fa-circle"></i>
+                    AI Agent Ready
+                </span>
+
+                <div class="top-avatar">RA</div>
+            </div>
+        </header>
+
+
+        <!-- ========================================== -->
+        <!-- VIEW 1: MAIN DASHBOARD                     -->
+        <!-- ========================================== -->
+        <div id="dashboardView">
+
+            <!-- WELCOME -->
+            <section class="welcome-section">
+                <div>
+                    <h1>Welcome back, Professor!</h1>
+                    <p>
+                        Discover new research, track upcoming conference deadlines,
+                        and identify your next research opportunity.
+                    </p>
+                </div>
+
+               
+
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                    <button id="runResearchBtn" class="primary-button">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        Run Research Agent
+                    </button>
+                    <small id="buttonLastRefresh" style="font-size: 0.8rem; font-weight: 500; color: rgba(255, 255, 255, 0.92);">
+                        Last refreshed: Never
+                    </small>
+                </div>
+
+
+</section>
+
+
+            <!-- STATISTICS -->
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon blue">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+                    <p>Papers Retrieved</p>
+                    <h2 id="papersCount">0</h2>
+                    <small>Academic literature</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon coral">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <p>Upcoming CFPs</p>
+                    <h2 id="cfpCount">0</h2>
+                    <small>Open submission deadlines</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    </div>
+                    <p>Research Trends</p>
+                    <h2 id="trendsCount">0</h2>
+                    <small>Emerging topics</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon green">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <p>Research Ideas</p>
+                    <h2 id="ideasCount">0</h2>
+                    <small>AI-generated proposals</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                    <p>Last Analysis</p>
+                    <h2 id="lastAnalysis">—</h2>
+                    <small>Latest agent execution</small>
+                </div>
+
+            </section>
+
+
+            <!-- RESEARCH INTERESTS -->
+            <section class="content-section" id="interests-section">
+                <div class="section-heading">
+                    <div>
+                        <h2>Your Research Interests</h2>
+                        <p>Topics monitored by ResearchRadar AI</p>
+                    </div>
+                </div>
+
+                <div class="interest-tags">
+                    <span>Artificial Intelligence</span>
+                    <span>AI Agents</span>
+                    <span>Agentic AI</span>
+                    <span>Machine Learning</span>
+                    <span>Natural Language Processing</span>
+                    <span>Large Language Models</span>
+                </div>
+            </section>
+
+
+            <!-- COMPACT HOT CONFERENCE DATES CARD -->
+            <section class="content-section">
+                <article class="info-card" style="padding: 1.25rem 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 0.85rem;">
+                        <div>
+                            <span class="badge badge-coral" style="margin-bottom: 0.35rem; display: inline-block;">
+                                <i class="fa-solid fa-fire"></i> HOT CONFERENCE DATES
+                            </span>
+                            <h2 style="font-size: 1.15rem; margin: 0;">Priority AI &amp; NLP Deadlines</h2>
+                        </div>
+
+                        <a href="#" id="viewAllConferencesBtn" class="view-all">
+                            View all conferences &amp; dates &rarr;
+                        </a>
+                    </div>
+
+                    <div id="hotDeadlinesSummary">
+                        <p class="muted-note">Loading priority conference deadlines...</p>
+                    </div>
+                </article>
+            </section>
+
+
+            <!-- RECENT RESEARCH -->
+            <section class="content-section" id="papers-section">
+                <div class="section-heading">
+                    <div>
+                        <h2>Recent Research Papers</h2>
+                        <p>Latest papers identified by your research agent (<span id="paperResultCount">0 papers</span>)</p>
+                    </div>
+
+                    <a href="#papers-section" class="view-all">View all</a>
+                </div>
+
+                <div id="publicationAlert" class="alert-box" hidden style="margin-bottom: 1rem;"></div>
+
+                <div id="papersContainer" class="papers-container">
+                    <div class="empty-state">
+                        <i class="fa-solid fa-book-open"></i>
+                        <h3>No research papers yet</h3>
+                        <p>Run your research agent to discover relevant papers.</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- AI INSIGHTS -->
+            <section class="content-section" id="insights-section">
+                <div class="section-heading">
+                    <div>
+                        <h2>AI Research Insights &amp; Gaps</h2>
+                        <p>Research gaps and emerging trends discovered by your AI agent</p>
+                    </div>
+                </div>
+
+                <div id="insightsContainer" class="insights-container">
+                    <div class="empty-state">
+                        <i class="fa-solid fa-brain"></i>
+                        <h3>Insights will appear here</h3>
+                        <p>Research trends and gaps will be displayed here after running the agent.</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- SUGGESTED RESEARCH IDEAS -->
+            <section class="content-section" id="ideas-section">
+                <div class="section-heading">
+                    <div>
+                        <h2>Suggested Research Ideas</h2>
+                        <p>AI-generated publication proposals aligned with your profile</p>
+                    </div>
+                </div>
+
+                <div id="ideasContainer" class="insights-container">
+                    <div class="empty-state">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <h3>Research ideas will appear here</h3>
+                        <p>Run the research agent to generate tailored research proposals.</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- VIEW 2: FULL CONFERENCES & CFPS TAB        -->
+        <!-- ========================================== -->
+        <div id="conferencesView" hidden>
+
+            <section class="content-section">
+                <div class="section-heading">
+                    <div>
+                        <h2>All Upcoming Conferences &amp; CFP Deadlines</h2>
+                        <p id="conferencesSummary">Loading conference calendar and deadlines...</p>
+                    </div>
+
+                    <div style="display: flex; gap: 0.75rem;">
+                        <button class="text-button" id="backToDashboardBtn">
+                            <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+                        </button>
+                        <button class="text-button" id="refreshConferencesBtn">
+                            <i class="fa-solid fa-arrows-rotate"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+
+                <h3 style="margin: 1rem 0 0.75rem; font-size: 1.05rem;">
+                    <i class="fa-regular fa-clock"></i> Open Call for Papers (CFP Deadlines)
+                </h3>
+                <div id="deadlinesContainer" class="papers-container">
+                    <div class="empty-state">
+                        <i class="fa-regular fa-clock"></i>
+                        <h3>Loading CFP deadlines...</h3>
+                    </div>
+                </div>
+
+                <h3 style="margin: 1.75rem 0 0.75rem; font-size: 1.05rem;">
+                    <i class="fa-regular fa-calendar"></i> Upcoming Academic Conferences
+                </h3>
+                <div id="conferencesContainer" class="papers-container">
+                    <div class="empty-state">
+                        <i class="fa-regular fa-calendar"></i>
+                        <h3>Loading upcoming conferences...</h3>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+
+        <footer>
+            ResearchRadar AI © 2026 Dr. Rowanda Ahmed | All Rights Reserved
+        </footer>
+
+    </main>
+
+</div>
+
+</body>
+</html>
